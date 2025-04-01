@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent {
 email: string | null = null;
 senha_hash: string | null = null;
 
-constructor(private loginService: LoginService, private toastr: ToastrService,
+constructor(private AuthService: AuthService, private loginService: LoginService, private toastr: ToastrService,
   private router: Router
 ) { }
   showSucsess() {
@@ -35,9 +36,12 @@ constructor(private loginService: LoginService, private toastr: ToastrService,
     if (this.email && this.senha_hash) {
       this.loginService.login(this.email, this.senha_hash).subscribe(
         (response) => {
-          console.log('Login successful', response);
+          // console.log('Login successful', response);
           this.showSucsess();
           this.router.navigate(['/home']);
+          const token = response.token;
+          // console.log('token:', token);
+          this.AuthService.saveToken(token);
           // Handle successful login here (e.g., navigate to another page)
         },
         (error) => {  
