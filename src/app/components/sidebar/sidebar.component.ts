@@ -7,12 +7,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AuthService } from '../../services/auth.service';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
   imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, RouterModule,
-    MatTooltipModule],
+    MatTooltipModule, CardComponent],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
 })

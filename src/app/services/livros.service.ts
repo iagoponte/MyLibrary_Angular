@@ -31,17 +31,22 @@ export class LivrosService {
   }
 
   //o correto seria criar um interface para o livro. Caso contrário, o livro pode ser qualquer coisa.
-  createLivro(Livro: any): Observable<Livro> {
-    return this.httpClient.post<Livro>(`${this.apiUrl}/create`, Livro).pipe(
+  createLivro(livro: any): Observable<Livro> {
+    return this.httpClient.post<Livro>(`${this.apiUrl}/create`, livro).pipe(
       map((response) => {
         return response;
       })
     );
   }
 
-  updateLivro(id: number, Livro: any): Observable<any> {
-    return this.httpClient.put(`${this.apiUrl}/atualizar/${id}`, Livro).pipe(map((response) => {
+  updateLivro(id: number, livro: any): Observable<Livro> {
+    //sem filtro ou utilidade pro pipe aqui.
+    return this.httpClient.put<Livro>(`${this.apiUrl}/atualizar/${id}`, livro).pipe(map((response) => {
       return response;
     }))
+  }
+
+  deleteLivro(id: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.apiUrl}/apagar/${id}`)
   }
 }

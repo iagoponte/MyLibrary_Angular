@@ -1,0 +1,21 @@
+<div class="card-container">
+  <mat-card
+    class="example-card"
+    appearance="outlined"
+    *ngFor="let livro of livros"
+  >
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ livro.titulo }}</mat-card-title>
+      <mat-card-subtitle>{{ livro.autor }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="livro.capa" alt="Capa do livro" />
+    <mat-card-content>
+      <p>{{ livro.sinopse }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

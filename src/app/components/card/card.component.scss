@@ -1,0 +1,42 @@
+// .card-container {
+//     display: flex;
+//     flex-wrap: wrap; /* Permite que os cards quebrem para a linha de baixo */
+//     gap: 16px; /* Espaçamento entre os cards */
+//     justify-content: center; /* Centraliza os cards */
+//   }
+  
+//   .cliente-card {
+//     width: 300px; /* Largura fixa para os cards */
+//     flex: 1 1 calc(33.33% - 32px); /* Responsivo: 3 cards por linha, ajustando o espaçamento */
+//     max-width: 350px; /* Tamanho máximo para não esticar muito */
+//   }
+  
+//   .cliente-card img {
+//     max-height: 100px; /* Altura máxima da imagem */
+//     max-width: 80px;
+//     object-fit: cover; /* Ajusta a imagem sem distorcer */
+//   }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os cards */
+    gap: 16px; /* Espaçamento entre os cards */
+    padding: 16px;
+  }
+  
+  .example-card {
+    width: 300px; /* Define uma largura fixa para os cards */
+    max-width: 100%; /* Evita que ultrapassem o container */
+  }
+
+  mat-card-header {
+    padding: 0%;
+    padding-bottom: 5px;
+  }
+  
+  mat-card img {
+    height: 350px; /* Altura fixa para as imagens */
+    object-fit: cover; /* Mantém o aspecto da imagem sem distorcer */
+    width: 100%; /* Garante que preencha a largura do card */
+  }
