@@ -22,17 +22,41 @@
     flex-wrap: wrap;
     justify-content: center; /* Centraliza os cards */
     gap: 16px; /* Espaçamento entre os cards */
-    padding: 16px;
+    padding: 10px;
+    transition: all 0.2s;
   }
   
-  .example-card {
+  .meu-card {
     width: 300px; /* Define uma largura fixa para os cards */
     max-width: 100%; /* Evita que ultrapassem o container */
+    text-align: center;
+  }
+
+  .meu-card:hover{
+    box-shadow: 10px 10px 10px rgba(60, 60, 60, 0.2);
   }
 
   mat-card-header {
-    padding: 0%;
+    padding: 2px;
     padding-bottom: 5px;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    max-height: 100px;
+  }
+  mat-card-content p {
+    font-style: italic;
+  }
+  .preco {
+    line-height: 24px;
+  }
+  .cifra {
+    position: relative;
+    font-size: 10px;
+    top: -.5em;
+    line-height: 16px;
+  }
+  .valor{
+    font-size: 18px;
   }
   
   mat-card img {
@@ -40,3 +64,4 @@
     object-fit: cover; /* Mantém o aspecto da imagem sem distorcer */
     width: 100%; /* Garante que preencha a largura do card */
   }
+

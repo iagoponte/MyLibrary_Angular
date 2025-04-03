@@ -1,3 +1,14 @@
-<!-- <app-sidenav> -->
-    <app-card></app-card>
-<!-- </app-sidenav> -->
+<mat-drawer-container class="drawer-container">
+    <!-- Sidebar (Drawer) -->
+    <mat-drawer #drawer mode="over">
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+  
+    <!-- Conteúdo Principal -->
+    <mat-drawer-content>
+      <app-navbar (menuClicked)="drawer.toggle()"></app-navbar>
+      <app-card></app-card>
+      <!-- Passa evento -->
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>

@@ -25,7 +25,7 @@ export class CardComponent {
   getLivros(){
     return this.livrosService.getLivros().subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
         this.livros = data.sort((a, b) => a.titulo.localeCompare(b.titulo))
       }
     );
