@@ -7,3 +7,12 @@
 .all-bodies {
     margin-top: 80px;
 }
+
+.mat-drawer {
+    max-width:fit-content;
+    // aparece uma barra pro conteúdo quando passa o hover.
+    // width: 100px;
+    max-height: max-content;
+    margin-top: 64px;
+    border-radius: 5px;
+}
