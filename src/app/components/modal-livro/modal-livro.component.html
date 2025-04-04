@@ -1,0 +1,29 @@
+<!-- <div mat-dialog-content class="modal-content">
+  <img [src]="livro.capa" alt="Capa do livro" class="book-image" />
+  <h2 mat-dialog-title>{{ livro.titulo }}</h2>
+  <p>{{ livro.sinopse }}</p>
+</div>
+<div mat-dialog-actions>
+</div> -->
+<div class="modal-container">
+  <!-- Capa do Livro -->
+  <div class="book-cover">
+    <img [src]="livro.capa" alt="Capa do livro" class="cover-image" />
+  </div>
+
+  <!-- Página interna do livro -->
+  <div class="book-content">
+    <h2 class="book-title">{{ livro.titulo }}</h2>
+    <h3 class="book-author">{{ livro.autor }}</h3>
+    <p class="book-description">{{ livro.sinopse }}</p>
+
+    <div class="book-price">
+      <span class="cifra">R$</span>
+      <span class="valor">{{ livro.preco }}</span>
+    </div>
+
+    <!-- <div class="modal-actions">
+      <button mat-button class="close-button" (click)="close()">Fechar</button>
+    </div> -->
+  </div>
+</div>

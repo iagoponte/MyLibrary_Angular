@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { ClienteService } from '../../services/cliente.service';
 import { Router } from '@angular/router';
@@ -26,7 +25,7 @@ export class SignupComponent {
   nome_usuario: string | null = null;
   senha_hash: string | null = null;
   
-  constructor(private AuthService: AuthService, private clienteService: ClienteService, private toastr: ToastrService,
+  constructor(private clienteService: ClienteService, private toastr: ToastrService,
     private router: Router) { }
 
   showSucsess() {

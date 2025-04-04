@@ -20,10 +20,12 @@
     width: 200px; /* Define a largura do drawer */
   }
   
-  mat-toolbar {
+  .mat-toolbar {
     display: flex;
     align-items: center;
     gap: 16px;
+    position:fixed;
+    z-index: 1000;
   }
 
 .nav-link-home {

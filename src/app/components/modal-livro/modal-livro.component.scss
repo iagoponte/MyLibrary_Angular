@@ -1,0 +1,86 @@
+modal-container {
+    display: flex;
+    width: 600px;
+    height: 400px;
+    background: #f4f1ea;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilização da capa do livro */
+  .book-cover {
+    flex: 1;
+    background: linear-gradient(to right, #306bda, #0b1c79);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .cover-image {
+    width: 50%;
+    height: auto;
+    max-height: 50%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  /* Página interna do livro */
+  .book-content {
+    flex: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    box-shadow: inset 5px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilização do título e autor */
+  .book-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .book-author {
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  /* Estilização do texto */
+  .book-description {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilização do preço */
+  .book-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  /* Botão de fechar */
+  .modal-actions {
+    text-align: right;
+  }
+  
+  .close-button {
+    background: #d32f2f;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  
+  .close-button:hover {
+    background: #b71c1c;
+  }

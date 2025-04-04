@@ -1,10 +1,12 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { LivrosService } from '../../services/livros.service';
 import { Router } from '@angular/router';
 import { NgFor, NgForOf } from '@angular/common';
 import { Livro } from '../../interface/livro';
+import { ModalLivroComponent } from '../modal-livro/modal-livro.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-card',
@@ -31,7 +33,26 @@ export class CardComponent {
     );
   };
 
-  redirect(){
-    return this.router.navigate(['/detalhes'])
-  };
+  // redirect(){
+  //   return this.router.navigate(['/detalhes'])
+  // };
+
+  //para o modal rodar pelo card::
+    readonly dialog = inject(MatDialog);
+  
+    openModalLivro(livro: any) {
+      const dialogRef = this.dialog.open(ModalLivroComponent, {
+        data: livro,
+        width: '70%',
+        height: '80%'
+      });
+  
+      dialogRef.afterClosed().subscribe({
+        next: result => console.log(`Dialog result: ${result}`),
+        error: err => {
+          console.error(err);
+        },
+        complete: () => {console.log('completo modal-dialog')}
+      })
+    }
 }

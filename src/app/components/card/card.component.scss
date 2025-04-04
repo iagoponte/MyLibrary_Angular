@@ -1,67 +1,102 @@
-// .card-container {
-//     display: flex;
-//     flex-wrap: wrap; /* Permite que os cards quebrem para a linha de baixo */
-//     gap: 16px; /* Espaçamento entre os cards */
-//     justify-content: center; /* Centraliza os cards */
-//   }
-  
-//   .cliente-card {
-//     width: 300px; /* Largura fixa para os cards */
-//     flex: 1 1 calc(33.33% - 32px); /* Responsivo: 3 cards por linha, ajustando o espaçamento */
-//     max-width: 350px; /* Tamanho máximo para não esticar muito */
-//   }
-  
-//   .cliente-card img {
-//     max-height: 100px; /* Altura máxima da imagem */
-//     max-width: 80px;
-//     object-fit: cover; /* Ajusta a imagem sem distorcer */
-//   }
-  
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centraliza os cards */
-    gap: 16px; /* Espaçamento entre os cards */
-    padding: 10px;
-    transition: all 0.2s;
-  }
-  
-  .meu-card {
-    width: 300px; /* Define uma largura fixa para os cards */
-    max-width: 100%; /* Evita que ultrapassem o container */
-    text-align: center;
-  }
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza os cards */
+  gap: 16px; /* Espaçamento entre os cards */
+  padding: 5px;
+  transition: all 0.2s;
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
 
-  .meu-card:hover{
-    box-shadow: 10px 10px 10px rgba(60, 60, 60, 0.2);
-  }
+.meu-card {
+  width: 300px; /* Define uma largura fixa para os cards */
+  max-width: 100%; /* Evita que ultrapassem o container */
+  text-align: center;
+}
 
-  mat-card-header {
-    padding: 2px;
-    padding-bottom: 5px;
-    text-align: center;
-    font-family:'Times New Roman', Times, serif;
-    max-height: 100px;
-  }
-  mat-card-content p {
-    font-style: italic;
-  }
-  .preco {
-    line-height: 24px;
-  }
-  .cifra {
-    position: relative;
-    font-size: 10px;
-    top: -.5em;
-    line-height: 16px;
-  }
-  .valor{
-    font-size: 18px;
-  }
-  
-  mat-card img {
-    height: 350px; /* Altura fixa para as imagens */
-    object-fit: cover; /* Mantém o aspecto da imagem sem distorcer */
-    width: 100%; /* Garante que preencha a largura do card */
-  }
+.meu-card:hover {
+  box-shadow: 10px 10px 10px rgba(60, 60, 60, 0.2);
+}
 
+// mat-card-header {
+//   padding: 2px;
+//   padding-bottom: 5px;
+//   text-align: center;
+//   font-family: "Times New Roman", Times, serif;
+//   max-height: 100px;
+// }
+
+.mat-card-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza o conteúdo verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+  text-align: center;
+  min-height: 80px; /* Define uma altura mínima */
+  max-height: 80px; /* Mantém altura fixa */
+  overflow: hidden; /* Garante que o conteúdo não ultrapasse */
+}
+
+/* Ajusta o tamanho do título */
+.mat-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  white-space: nowrap; /* Mantém o título em uma linha */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adiciona "..." caso o título seja muito longo */
+  max-width: 90%; /* Evita que ultrapasse as bordas */
+}
+
+/* Ajusta o subtítulo */
+.mat-card-subtitle {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+//----------------------------------------------------------------------
+mat-card-content p {
+  font-style: italic;
+}
+.preco {
+  line-height: 24px;
+}
+.cifra {
+  position: relative;
+  font-size: 10px;
+  top: -0.5em;
+  line-height: 16px;
+}
+.valor {
+  font-size: 18px;
+}
+
+mat-card img {
+  height: 350px; /* Altura fixa para as imagens */
+  object-fit: cover; /* Mantém o aspecto da imagem sem distorcer */
+  width: 100%; /* Garante que preencha a largura do card */
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: center; /* Centraliza os botões */
+  align-items: center; /* Alinha os botões verticalmente */
+  gap: 10px; /* Espaço entre os botões */
+  margin-top: auto; /* Faz os botões ficarem na base do card */
+}
+
+/* Estilo dos botões para terem o mesmo tamanho */
+.card-button {
+  flex: 1; /* Faz com que os botões tenham o mesmo tamanho */
+  min-width: 120px; /* Define um tamanho mínimo */
+  padding: 10px;
+  text-align: center; /* Centraliza o texto dentro do botão */
+  color: white;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+// .card-button:hover {
+//   background: #b71c1c;
+// }
