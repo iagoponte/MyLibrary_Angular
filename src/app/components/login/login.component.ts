@@ -12,18 +12,27 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatCardModule, FormsModule, ReactiveFormsModule, MatInputModule, 
-    MatButtonModule, MatFormFieldModule],
+  imports: [
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+  ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-email: string | null = null;
-senha_hash: string | null = null;
+  email: string | null = null;
+  senha_hash: string | null = null;
 
-constructor(private AuthService: AuthService, private loginService: LoginService, private toastr: ToastrService,
-  private router: Router
-) { }
+  constructor(
+    private AuthService: AuthService,
+    private loginService: LoginService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {}
   showSucsess() {
     this.toastr.success('Login realizado com sucesso!');
   }
@@ -31,30 +40,26 @@ constructor(private AuthService: AuthService, private loginService: LoginService
     this.toastr.error(erro, mensagem);
   }
 
-  
-  login(){
+  login() {
     if (this.email && this.senha_hash) {
-      this.loginService.login(this.email, this.senha_hash).subscribe(
-        (response) => {
+      this.loginService.login(this.email, this.senha_hash).subscribe({
+        next: (response) => {
           // console.log('Login successful', response);
           this.showSucsess();
           this.router.navigate(['/home']);
           const token = response.token;
           // console.log('token:', token);
           this.AuthService.saveToken(token);
-          // Handle successful login here (e.g., navigate to another page)
         },
-        (error) => {  
-          this.showError(error.error.message, "Deu um erro no login");
-          console.log('Login failed', error);
-          // console.error('Login failed', error);
-          // Handle login error here
-        }
-      );
-    } else {
-      console.error('Email and password must not be null');
-      // Handle the case where email or password is null
+        error: (err) => {
+          console.error('Login failed', err);
+          const errorMessage = err.error?.message || 'Erro no login'; //evitar crashar caso err.error for undefined;
+          this.showError(errorMessage, 'Deu erro no login');
+        },
+        complete: () => {
+          console.log('Completou a função.');
+        }, //só chama se quiser, se não vai usar, pode apagar.
+      });
     }
   }
-  
 }

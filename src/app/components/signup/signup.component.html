@@ -1,8 +1,13 @@
-<div class="login-container">
+<div class="signup-container">
     <mat-card>
-      <mat-card-title>Login</mat-card-title>
+      <mat-card-title>Signup</mat-card-title>
       <mat-card-content>
-        <form (ngSubmit)="login()">
+        <form (ngSubmit)="signup()">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Usuário</mat-label>
+            <input matInput type="user" [(ngModel)]="nome_usuario" name="user" required>
+          </mat-form-field>
+
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>Email</mat-label>
             <input matInput type="email" [(ngModel)]="email" name="email" required>
@@ -18,5 +23,4 @@
         <br><p>Sem Cadastro?<a href="/signup">Clique aqui</a></p>
       </mat-card-content>
     </mat-card>
-  </div>
-  
+</div>

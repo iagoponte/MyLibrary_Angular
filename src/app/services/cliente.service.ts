@@ -18,8 +18,9 @@ export class ClienteService {
       );
   }
 
-  createCliente(nome_usuario: string, email: string, senha_hash: string, cliente: any): Observable<Cliente>{
-    return this.httpClient.post<Cliente>(`${this.apiUrl}/cliente/signup`, cliente).pipe(map((response) => {
+  createCliente(nome_usuario: string, email: string, senha_hash: string): Observable<Cliente>{
+    const body = {nome_usuario, email, senha_hash}
+    return this.httpClient.post<Cliente>(`${this.apiUrl}/cliente/signup`, body).pipe(map((response) => {
       return response;
     }))
   }

@@ -4,11 +4,12 @@ import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import { CardComponent } from '../../components/card/card.component';
 import { RouterOutlet } from '@angular/router';
 import { MatDrawer, MatDrawerContainer, MatDrawerContent } from '@angular/material/sidenav';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SidebarComponent, NavbarComponent, CardComponent, RouterOutlet, MatDrawerContent, MatDrawer, MatDrawerContainer],
+  imports: [FooterComponent, SidebarComponent, NavbarComponent, CardComponent, RouterOutlet, MatDrawerContent, MatDrawer, MatDrawerContainer],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

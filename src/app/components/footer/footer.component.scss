@@ -1,0 +1,33 @@
+.footer1 {
+    display: flex;
+    justify-content: space-between; /* Distribui os elementos */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 10px 20px;
+    background-color: #3F51B5;
+    color:antiquewhite;
+  }
+  
+  .block_elem0 {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; /* Mantém os itens separados */
+  }
+  
+  .block_elem1, .block_elem2 {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre os elementos */
+  }
+  
+  .block_elem1 {
+    justify-content: flex-start; /* Fica na esquerda */
+  }
+  
+  .block_elem2 {
+    justify-content: flex-end; /* Fica na direita */
+  }
+
+  .block_elem_link {
+    text-decoration: none;
+    color:rgb(255, 253, 250);
+  }
