@@ -1,6 +1,6 @@
 // .sidebar {
 //   gap: 15px;
-  
+
 // }
 
 // .sidebar a {
@@ -10,10 +10,16 @@
 //   color: -webkit-link;
 // }
 
+//gambiarra com o nav de cor de fundo, pois não consegui sobrepor o backdrop nativo, muito trabalho, pra deixar fixo...
 .nav-list {
   gap: 24px;
   padding: 0;
   margin: 0;
+  position: fixed;
+  z-index: 9999;
+  background-color: azure;
+  border-radius: 12px;
+  
 
   li {
     a {
@@ -25,6 +31,7 @@
       color: #333;
       font-weight: 500;
       transition: all 0.15s ease;
+      z-index: 3000;
 
       &:hover {
         background: rgba(0, 0, 0, 0.05); // soft highlight
@@ -34,7 +41,7 @@
       }
 
       &:active {
-        transform: scale(0.90);
+        transform: scale(0.9);
       }
     }
   }

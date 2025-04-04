@@ -1,4 +1,13 @@
 table {
     align-items: center;
     justify-content: center;
+    width: 90%;
+  }
+
+  :host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #c8d5d8, #a4a4a4);
   }

@@ -15,4 +15,10 @@
     max-height: max-content;
     margin-top: 64px;
     border-radius: 5px;
+    background-color: white;
+    z-index: 2500 !important;
+}
+
+.mat-drawer-backdrop {
+    z-index: 999;
 }

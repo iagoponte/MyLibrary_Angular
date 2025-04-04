@@ -1,5 +1,6 @@
 <mat-drawer-container class="drawer-container">
   <!-- Sidebar (Drawer) -->
+   <!-- position="start" [autofocus]="false" -->
   <mat-drawer #drawer mode="over">
     <app-sidenav></app-sidenav>
   </mat-drawer>
@@ -7,7 +8,7 @@
   <!-- Conteúdo Principal -->
   <mat-drawer-content>
     <app-navbar (menuClicked)="drawer.toggle()"></app-navbar>
-    <app-card></app-card>
+    <!-- <app-card></app-card> ESTOU PASSANDO O APP-CARD PELO ROUTER-OUTLET --bugando no sidenav, vai pro topo da página -->
     <!-- Passa evento -->
     <router-outlet></router-outlet>
     <app-footer></app-footer>
