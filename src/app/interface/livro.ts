@@ -6,5 +6,6 @@ export interface Livro {
     genero: string,
     capa: string,
     sinopse: string,
-    preco: number
+    preco: number, 
+    created_at: string
 }
