@@ -12,11 +12,11 @@ export const routes: Routes = [
 //   // { path: 'perfil', component: , canActivate: [authGuard]}
 //   { path: 'admin/stock', component: StockComponent }
 {
-    path: 'home',
+    path: '',
     component: HomeComponent,
     children: [
     //   { path: '', redirectTo: 'card', pathMatch: 'full' }, // optional
-      { path: '', loadComponent: () => import('./components/card/card.component').then(m => m.CardComponent) },
+      { path: 'livros', loadComponent: () => import('./components/card/card.component').then(m => m.CardComponent) },
       { path: 'admin/stock', loadComponent: () => import('./pages/stock/stock.component').then(m => m.StockComponent) }
 
       // other child routes go here

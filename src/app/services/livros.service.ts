@@ -39,9 +39,12 @@ export class LivrosService {
     );
   }
 
-  updateLivro(id: number, livro: any): Observable<Livro> {
+
+  updateLivro(id: number, titulo: string, autor: string, ano_publicacao: number, genero: string, capa: string, sinopse: string,  preco: number, quantidade: number): Observable<Livro> {
+    const body = {titulo, autor, ano_publicacao, genero, capa, sinopse, preco, quantidade};
+
     //sem filtro ou utilidade pro pipe aqui.
-    return this.httpClient.put<Livro>(`${this.apiUrl}/atualizar/${id}`, livro).pipe(map((response) => {
+    return this.httpClient.put<Livro>(`${this.apiUrl}/atualizar/${id}`, body).pipe(map((response) => {
       return response;
     }))
   }

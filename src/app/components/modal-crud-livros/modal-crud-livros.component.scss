@@ -1,0 +1,68 @@
+:host {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+  }
+
+  .book-cover {
+    padding:20px;
+    max-width:fit-content;
+    max-height:min-content;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .book-content h2 span{
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .book-content h2 {
+    font-size: 24px;
+    font-weight: lighter;
+    color: #333;
+  }
+
+  .modal-container {
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #6b75bd, #f1f1f1);
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+//   button {
+//     width: 100%;
+//     background-color: #1976d2;
+//     color: white;
+//     font-weight: bold;
+//   }
+  
+//   button:hover {
+//     background-color: #1565c0;
+//   }
+
+  .mat-raised-button{
+    border-radius: 12px;
+      text-decoration: none;
+      text-align: center;
+      font-weight: 500;
+  
+    &:hover {
+        background: rgba(248, 248, 248, 0.05); // soft highlight
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); // subtle depth
+        transform: translateY(-1px) scale(1.01); // slight lift
+        overflow-x: hidden;
+    }
+}

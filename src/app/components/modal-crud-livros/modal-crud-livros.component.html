@@ -1,0 +1,52 @@
+<div mat-gris-list cols='2' class="modal-container">
+    <!-- Capa do Livro -->
+    <div mat-grid-tile class="book-cover">
+      <img [src]="livro.capa" alt="Capa do livro" class="cover-image" />
+    </div>
+  
+    <!-- Página interna do livro -->
+    <div mat-grid-tile class="book-content">
+        <h2><span>Alteração</span> <br>{{livro.titulo}}<br></h2>
+        <form (ngSubmit)="editLivros(livro)">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Título</mat-label>
+              <input matInput type="title" [(ngModel)]="livro.titulo" name="title" value={{livro.titulo}} placeholder={{livro.titulo}}>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Autor</mat-label>
+              <input matInput type="author" [(ngModel)]="livro.autor" name="senha" required value={{livro.autor}} placeholder={{livro.autor}}>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Ano de Publicação</mat-label>
+                <input matInput type="year" [(ngModel)]="livro.ano_publicacao" name="ano_publicacao" value={{livro.ano_publicacao}} placeholder={{livro.ano_publicacao}}>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Gênero</mat-label>
+                <input matInput type="gender" [(ngModel)]="livro.genero" name="genero" value={{livro.genero}} placeholder={{livro.genero}}>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Capa</mat-label>
+                <input matInput type="cover" [(ngModel)]="livro.capa" name="capa" value={{livro.capa}} placeholder={{livro.capa}}>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Sinopse</mat-label>
+                <input matInput type="sinopse" [(ngModel)]="livro.sinopse" name="sinopse" value={{livro.sinopse}} placeholder={{livro.sinopse}}>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Preço</mat-label>
+                <input matInput type="title" [(ngModel)]="livro.preco" name="preco" value={{livro.preco}} placeholder={{livro.preco}}>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Quantidade</mat-label>
+                <input matInput type="title" [(ngModel)]="livro.quantidade" name="quantidade" value={{livro.quantidade}} placeholder={{livro.quantidade}}>
+              </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Edit</button>
+          </form>
+  
+      <!-- <div class="modal-actions">
+        <button mat-button class="close-button" (click)="close()">Fechar</button>
+      </div> -->
+    </div>
+    <br>
+    <button mat-raised-button color="warn" (click)="deleteLivros(livro)">Delete</button>
+  </div>

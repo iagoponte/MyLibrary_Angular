@@ -7,5 +7,6 @@ export interface Livro {
     capa: string,
     sinopse: string,
     preco: number, 
-    created_at: string
+    created_at?: string,
+    quantidade: number
 }

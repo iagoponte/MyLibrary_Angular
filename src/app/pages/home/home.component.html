@@ -10,7 +10,9 @@
     <app-navbar (menuClicked)="drawer.toggle()"></app-navbar>
     <!-- <app-card></app-card> ESTOU PASSANDO O APP-CARD PELO ROUTER-OUTLET --bugando no sidenav, vai pro topo da página -->
     <!-- Passa evento -->
-    <router-outlet></router-outlet>
+    <div class="content_router">
+      <router-outlet></router-outlet>
+    </div>
     <app-footer></app-footer>
   </mat-drawer-content>
 </mat-drawer-container>

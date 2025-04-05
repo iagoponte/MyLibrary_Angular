@@ -1,13 +1,3 @@
-.titulo {
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 600;
-}
-
-.all-bodies {
-    margin-top: 80px;
-}
-
 .mat-drawer {
     max-width:fit-content;
     // aparece uma barra pro conteúdo quando passa o hover.
@@ -15,10 +5,25 @@
     max-height: max-content;
     margin-top: 64px;
     border-radius: 5px;
-    background-color: white;
     z-index: 2500 !important;
 }
 
-.mat-drawer-backdrop {
-    z-index: 999;
-}
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* wrapper que contém o conteúdo (e o router-outlet) */
+  .content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
