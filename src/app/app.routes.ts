@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
-import { authGuard } from './guards/auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { SignupComponent } from './components/signup/signup.component';
 import { StockComponent } from './pages/stock/stock.component';
+import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 
 export const routes: Routes = [
 //   { path: 'signin', component: LoginComponent },
@@ -16,8 +17,19 @@ export const routes: Routes = [
     component: HomeComponent,
     children: [
     //   { path: '', redirectTo: 'card', pathMatch: 'full' }, // optional
-      { path: 'livros', loadComponent: () => import('./components/card/card.component').then(m => m.CardComponent) },
-      { path: 'admin/stock', loadComponent: () => import('./pages/stock/stock.component').then(m => m.StockComponent) }
+      { 
+        path: 'livros',
+        loadComponent: () => import('./components/card/card.component').then(m => m.CardComponent),
+        canActivate: [AuthGuard],
+        data: { roles: ['usuario', 'admin'] }
+      },
+      { 
+        path: 'admin/stock',
+        loadComponent: () => import('./pages/stock/stock.component').then(m => m.StockComponent),
+        canActivate: [AuthGuard],
+        data: { roles: ['admin'] }
+      },
+      { path: 'unauthorized', loadComponent: () => import('./pages/unauthorized/unauthorized.component').then(m => UnauthorizedComponent) }
 
       // other child routes go here
     ]

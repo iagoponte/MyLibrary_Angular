@@ -44,12 +44,13 @@ export class LoginComponent {
     if (this.email && this.senha_hash) {
       this.loginService.login(this.email, this.senha_hash).subscribe({
         next: (response) => {
-          // console.log('Login successful', response);
+          console.log('Login successful', response);
           this.showSucsess();
           this.router.navigate(['/home']);
           const token = response.token;
           // console.log('token:', token);
           this.AuthService.saveToken(token);
+          this.AuthService.getRole();
         },
         error: (err) => {
           console.error('Login failed', err);

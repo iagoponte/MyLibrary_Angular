@@ -2,7 +2,7 @@
   <mat-card
     class="meu-card"
     appearance="outlined"
-    *ngFor="let livro of livros"
+    *ngFor="let livro of livros$ | async"
   >
     <mat-card-header>
       <!-- <div mat-card-avatar class="example-header-image">

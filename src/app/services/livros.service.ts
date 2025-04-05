@@ -11,23 +11,24 @@ export class LivrosService {
   constructor(private httpClient: HttpClient) {}
   private apiUrl = `${environment.apiUrl}/livros`;
 
+// a declaração função(): Observable<> "fala" pra mim que a função irá retornar um Observable, que é uma representação de valores fixos (interface)
+// então, o uso do subscribe({next, error, complete}) ele pega um retorno de observable e trabalha em cima dele diretamente
+// por isso, não posso declarar uma função com observable e na mesma já chamar o subscribe.
+// nesse caso o subscribe vem no componente, aqui utilizaremos pipe, pra possibilitar o manuseio dos dados dentro do observable
   getLivros(): Observable<Livro[]> {
-    return this.httpClient.get<Livro[]>(this.apiUrl)
-    // .pipe(
-    //   map((response) => {
-    //     return response;
-    //   })
-    // );
-    // talvez, não usar o pipe aqui, poderá fazer com que eu não consiga obter o retorno do meu back, por conta de como estruturei o json das respostas.
+    return this.httpClient.get<Livro[]>(this.apiUrl).pipe(
+      map((response) => {
+        return response;
+      })
+    );
   }
 
   getLivro(id: number): Observable<Livro> {
-    return this.httpClient.get<Livro>(`${this.apiUrl}/${id}`)
-    // .pipe(
-    //   map((response) => {
-    //     return response;
-    //   })
-    // );
+    return this.httpClient.get<Livro>(`${this.apiUrl}/${id}`).pipe(
+      map((response) => {
+        return response;
+      })
+    );
   }
 
   //o correto seria criar um interface para o livro. Caso contrário, o livro pode ser qualquer coisa.
@@ -39,10 +40,8 @@ export class LivrosService {
     );
   }
 
-
   updateLivro(id: number, titulo: string, autor: string, ano_publicacao: number, genero: string, capa: string, sinopse: string,  preco: number, quantidade: number): Observable<Livro> {
     const body = {titulo, autor, ano_publicacao, genero, capa, sinopse, preco, quantidade};
-
     //sem filtro ou utilidade pro pipe aqui.
     return this.httpClient.put<Livro>(`${this.apiUrl}/atualizar/${id}`, body).pipe(map((response) => {
       return response;

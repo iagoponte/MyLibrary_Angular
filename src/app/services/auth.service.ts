@@ -1,28 +1,43 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
+import { PayloadToken } from '../interface/payload-token';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  constructor(private router: Router, private localStorageService: StorageService ) {}
+
   token_key = 'authToken'
-
-  constructor(private router: Router ) {}
-
   saveToken(token: string) {
-    localStorage.setItem(this.token_key, token);
+    this.localStorageService.setItem(this.token_key, token);
   }
 
   getToken() {
-    return localStorage.getItem(this.token_key);
+    return this.localStorageService.getItem(this.token_key);
+  }
+
+  getRole() {
+    const token = this.getToken()
+    if (!token) return null;
+
+    const payload = jwtDecode<PayloadToken>(token);
+    // console.log('aqui é o payloaddd:', payload.role);
+    return payload.role;
   }
 
   logout () {
-    localStorage.removeItem(this.token_key);
+    this.localStorageService.removeItem(this.token_key);
     this.router.navigate(['/']);
   }
 
-  isAuth(): boolean {
+  isLogged(): boolean {
     return !!this.getToken();
+  }
+
+  isAuthRole(){
+
   }
 }
