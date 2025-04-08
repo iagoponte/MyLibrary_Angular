@@ -1,58 +1,25 @@
 <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource">
-  
-      <!-- id Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> Id </th>
-        <td mat-cell *matCellDef="let livro"> {{livro.id}} </td>
-      </ng-container>
-  
-      <!-- titulo Column -->
-      <ng-container matColumnDef="titulo">
-        <th mat-header-cell *matHeaderCellDef> titulo </th>
-        <td mat-cell *matCellDef="let livro"> {{livro.titulo}} </td>
-      </ng-container>
-  
-      <!-- autor Column -->
-      <ng-container matColumnDef="autor">
-        <th mat-header-cell *matHeaderCellDef> autor </th>
-        <td mat-cell *matCellDef="let livro"> {{livro.autor}} </td>
-      </ng-container>
-  
-      <!-- ano_publicacao Column -->
-      <ng-container matColumnDef="ano_publicacao">
-        <th mat-header-cell *matHeaderCellDef> ano_publicacao </th>
-        <td mat-cell *matCellDef="let livro"> {{livro.ano_publicacao}} </td>
-      </ng-container>
+  <table mat-table [dataSource]="dataSource">
+    @for (column of displayedColumns; track column) {
+    <ng-container matColumnDef="{{ column }}">
+      <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+      <td mat-cell *matCellDef="let livro">{{ livro[column] }}</td>
+    </ng-container>
+    }
 
-      <!-- preco Column -->
-      <ng-container matColumnDef="preco">
-        <th mat-header-cell *matHeaderCellDef> preco </th>
-        <td mat-cell *matCellDef="let livro"> {{livro.preco}} </td>
-      </ng-container>
-
-      <!-- genero Column -->
-      <ng-container matColumnDef="genero">
-        <th mat-header-cell *matHeaderCellDef> genero </th>
-        <td mat-cell *matCellDef="let livro"> {{livro.genero}} </td>
-      </ng-container>
-
-      <!-- quantidade Column -->
-      <ng-container matColumnDef="quantidade">
-        <th mat-header-cell *matHeaderCellDef> quantidade </th>
-        <td mat-cell *matCellDef="let livro"> {{livro.quantidade}} </td>
-      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      (click)="openModalLivroCrud(row)"
+      *matRowDef="let row; columns: displayedColumns"
+    ></tr>
+  </table>
   
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row
-      (click)="openModalLivroCrud(row)" 
-      *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    <!-- [class.demo-row-is-clicked]="clickedRows.has(row)" -->
-  
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                   showFirstLastButtons
-                   aria-label="Select page of periodic elements">
-                   <button mat-raised-button color="primary">New Book</button>
-    </mat-paginator>
-  </div>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Selecione o livro"
+  >
+    <button mat-raised-button color="primary">New Book</button>
+  </mat-paginator>
+</div>
