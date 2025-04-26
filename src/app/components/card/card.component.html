@@ -11,7 +11,7 @@
       <mat-card-title>{{ livro.titulo }}</mat-card-title>
       <mat-card-subtitle>{{ livro.autor }}</mat-card-subtitle>
     </mat-card-header>
-    <img (click)="openModalLivro(livro)" mat-card-image [src]="livro.capa" alt="Capa do livro" />
+    <img class="imageCard" (click)="openModalLivro(livro)" mat-card-image [src]="livro.capa" alt="Capa do livro" />
     <mat-card-content>
       <div class="preco">
         <span class="cifra">R$</span>

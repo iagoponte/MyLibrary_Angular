@@ -27,6 +27,10 @@
 //   max-height: 100px;
 // }
 
+.imageCard {
+  cursor: pointer;
+}
+
 .mat-card-header {
   display: flex;
   flex-direction: column;
